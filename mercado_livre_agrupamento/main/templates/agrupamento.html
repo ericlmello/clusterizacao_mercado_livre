@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrupamento - Mercado Livre</title>
+</head>
+<body>
+    <h2>Agrupamento de valores atuais - mercado Livre</h2>
+    
+    {% if imagem_url %}
+        <img src="{{ imagem_url }}" alt="Gráfico de Agrupamento">
+    {% else %}
+        <p>O gráfico ainda não foi gerado.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Voltar</a>
+</body>
+</html>
