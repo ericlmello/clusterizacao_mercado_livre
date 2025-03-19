@@ -1,7 +1,9 @@
            1. Objetivo do Projeto
 Auxiliar vendedores do Mercado Livre na precificação e segmentação (público alvo) de seus produtos. Para isso, utilizamos técnicas de ciência de dados e Machine Learnig, como a clusterização de preços (K-Means e DBSCAN), detecção de outliers e análise estatística dos dados. O projeto também inclui a exposição do agrupamento de preços atuais via Flask em 3 segmentos (Ecomômico, intermediário e Premium) e a geração de dashboards no Power BI com média, preços máximos e mínimos por grupo.
+
+
+![image](https://github.com/user-attachments/assets/7d24441f-0b52-47dc-9841-072e5b8a7799)
 Figura 1: Fluxo de dados do projeto
-           
            2. Pipeline do Projeto
     1. Extração dos dados: Coleta de informações sobre produtos e preços do Mercado Livre (API)
     2. Armazenamento: Utilização de um banco de dados SQLite para persistência dos dados. 
@@ -14,6 +16,7 @@ Essa normalização transforma os valores da coluna "preco" para um intervalo de
     6. Detecção de outliers: Identificação de valores discrepantes na base de preços. 
     7. Disponibilização via Flask: API e página web para visualização dos clusters e outlaiers. 
     8. Integração com Power BI: Uso do banco de dados SQLite como fonte para visualização dos dados. 
+    
                3 Estatísticas Descritivas
 Para entender a distribuição dos preços: print(df['preco'].describe())
 Principais estatísticas calculadas:
@@ -35,19 +38,12 @@ df['cluster_kmeans'] = kmeans.fit_predict(df[['preco_normalizado']])
 
                
                
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               Figura 3: Clusterização k-means com centróides
+               ![image](https://github.com/user-attachments/assets/e87c814c-7c3a-49c2-892f-13046c48516b)
+
+                                         
+                               
+                             
+                          Figura 3: Clusterização k-means com centróides
 
                4.2 Método DBSCAN
 DBSCAN é aplicado para detectar outliers:
@@ -70,6 +66,9 @@ Valores negativos → Pontos mal classificados (estão mais próximos de outro c
 Resultado:
 Silhouette Score - KMeans: 0.591 
 Silhouette Score - DBSCAN: 0.701 
+![image](https://github.com/user-attachments/assets/4e39d92a-9064-4442-8778-cca97b62d33a)
+
+
 Figura 2: Comparação da clusterização
            5. Visualização da Distribuição dos Clusters
                5.1 K-Means com Outliers
@@ -96,6 +95,10 @@ plt.ylabel("Preço (R$)")
 plt.title("Clusterização dos Preços com DBSCAN")
 plt.colorbar(label="Cluster")
 plt.show()
+
+
+![image](https://github.com/user-attachments/assets/b07594ed-a5ea-479a-bf07-4bc50d999a7c)
+
 Figura 3: Distribuição dos clusters
 
 
@@ -136,6 +139,7 @@ if __name__ == '__main__':
            7. Integração com Power BI
 O banco de dados SQLite é utilizado como fonte de dados no Power BI foram criadas medidas relativas aos preços mínimo, máximo, médio e mediana dos produtos de cada grupo. As tabelas/dimensões são Produto e Grupo. Foram gerados relatórios e dashboards com gráficos de barras e pizza para análise dos preços médios e máximos por categoria.
 
+![image](https://github.com/user-attachments/assets/8633d065-b442-4114-8629-e370c96e3013)
 
 Figura 4: Dashboards no Power BI
 
